@@ -39,9 +39,14 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/fholgado/minibufexpl.vim'
 Plug 'https://github.com/scrooloose/syntastic'
 Plug 'https://github.com/easymotion/vim-easymotion'
+Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 call plug#end()
 
-colorscheme elflord 
+colorscheme molokai 
+
+if has('gui_running')
+  set guifont=Consolas:h9
+endif
 
 set tabstop=2
 set guioptions-=m  "remove menu bar
@@ -114,3 +119,12 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" Copy and paste
+vnoremap <C-c> "+y
+vnoremap <C-x> "+d
+vnoremap <C-v> "+p
+inoremap <C-v> <C-r><C-o>+
+
+" NerdTree map
+map <leader>l :NERDTreeFind<cr>
