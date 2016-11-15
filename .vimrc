@@ -40,12 +40,24 @@ Plug 'https://github.com/fholgado/minibufexpl.vim'
 Plug 'https://github.com/scrooloose/syntastic'
 Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
+Plug 'https://github.com/tpope/vim-surround.git'
 call plug#end()
 
 colorscheme molokai 
 
 if has('gui_running')
   set guifont=Consolas:h9
+endif
+
+" Encoding
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 set tabstop=2
@@ -128,3 +140,5 @@ inoremap <C-v> <C-r><C-o>+
 
 " NerdTree map
 map <leader>l :NERDTreeFind<cr>
+
+set nowrap
