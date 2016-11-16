@@ -41,6 +41,9 @@ Plug 'https://github.com/scrooloose/syntastic'
 Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/scrooloose/nerdcommenter'
+Plug 'https://github.com/terryma/vim-multiple-cursors'
+Plug 'https://github.com/SirVer/ultisnips'
 call plug#end()
 
 colorscheme molokai 
@@ -141,4 +144,16 @@ inoremap <C-v> <C-r><C-o>+
 " NerdTree map
 map <leader>l :NERDTreeFind<cr>
 
+" Don't wrap code
 set nowrap
+
+" NERD Commenter settings
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+
+" Multiple Cursors Settings
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
