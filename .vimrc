@@ -107,6 +107,7 @@ Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
+Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
 
 colorscheme molokai 
@@ -258,3 +259,4 @@ autocmd BufEnter * silent! cd %:p:h
 " * easymotion, leader leader j/k
 " * easymotion, fuzzy find
 " * leader leader - to switch file
+" * split plugins to separate file
