@@ -18,18 +18,23 @@ set laststatus=2
 set confirm
 set visualbell
 set t_vb=
-set mouse=a
+set mouse=i
 set cmdheight=2
 set number
 set numberwidth=5
 set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
-set shiftwidth=2
-set softtabstop=2
 set shiftround
 set expandtab
-set autoread
-au FocusGained,BufEnter * :silent! !
+"set autoread
+
+" Tab-settings
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=2
+set tabstop=2
 
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -39,16 +44,15 @@ let mapleader = " "
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·
 
 set nowrap " don't wrap code
-set textwidth=100 " Make it obvious where 100 characters is
+" set textwidth=100 " Make it obvious where 100 characters is
 set formatoptions=cq
 set formatoptions=qrn1
 set wrapmargin=0
 set colorcolumn=+1
 
-set tabstop=2
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=L  "remove left scrollbar
@@ -86,6 +90,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Run the q macro
+nnoremap <leader>q @q
+
 " ================ Scrolling ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -105,7 +112,7 @@ Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
-Plug 'https://github.com/SirVer/ultisnips'
+" Plug 'https://github.com/SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
@@ -166,11 +173,12 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
 " noremap <leader>i mzgg=G`z
-map <leader>i mzgg=G`z
+" Reindent entire file
+map <leader>r mzgg=G`z
 
 " Switch between the last two files
 nnoremap <leader><leader>f <c-^>
@@ -252,11 +260,14 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-"update dir to current file
-autocmd BufEnter * silent! cd %:p:h
+" update dir to current file
+" autocmd BufEnter * silent! cd %:p:h
 
+" testing close tag
+inoremap <C-Space> </<C-X><C-O><Esc>==a
 " TODO
 " * easymotion, leader leader j/k
 " * easymotion, fuzzy find
 " * leader leader - to switch file
 " * split plugins to separate file
+" http://vim.wikia.com/wiki/Quick_command_in_insert_mode
