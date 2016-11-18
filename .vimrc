@@ -263,11 +263,5 @@ let g:multi_cursor_quit_key='<Esc>'
 " update dir to current file
 " autocmd BufEnter * silent! cd %:p:h
 
-" testing close tag
-inoremap <C-Space> </<C-X><C-O><Esc>==a
-" TODO
-" * easymotion, leader leader j/k
-" * easymotion, fuzzy find
-" * leader leader - to switch file
-" * split plugins to separate file
-" http://vim.wikia.com/wiki/Quick_command_in_insert_mode
+" HTML close tag
+autocmd FileType html inoremap <C-Space> </<C-X><C-O><Esc>==a
