@@ -312,3 +312,9 @@ let g:startify_commands = [
       \ {'h': 'h ref'},
       \ {'w': ['Vim Wiki', 'VimwikiIndex']},
       \ ]
+
+" Disable scrollwheel
+map <ScrollWheelUp> <nop>
+map <S-ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
+map <S-ScrollWheelDown> <nop>
