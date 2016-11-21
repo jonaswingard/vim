@@ -118,6 +118,7 @@ Plug 'https://github.com/vimwiki/vimwiki'
 Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/othree/html5-syntax.vim'
 Plug 'https://github.com/othree/html5.vim'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 colorscheme molokai 
@@ -285,3 +286,29 @@ let g:javascript_conceal_prototype      = "¶"
 let g:javascript_conceal_static         = "•"
 let g:javascript_conceal_super          = "Ω"
 let g:javascript_conceal_arrow_function = "⇒"
+
+" Startify
+let g:startify_bookmarks = [
+      \ { 'c': '~/.vim/vimrc' },
+      \ '~/golfing',
+      \ ]
+
+let g:startify_list_order = [
+      \ ['   These are my sessions:'],
+      \ 'sessions',
+      \ ['   These are my bookmarks:'],
+      \ 'bookmarks',
+      \ ['   My most recently used files'],
+      \ 'files',
+      \ ['   My most recently used files in the current directory:'],
+      \ 'dir',
+      \ ['   These are my commands:'],
+      \ 'commands',
+      \ ]
+
+let g:startify_commands = [
+      \ ':help reference',
+      \ ['Vim Reference', 'h ref'],
+      \ {'h': 'h ref'},
+      \ {'w': ['Vim Wiki', 'VimwikiIndex']},
+      \ ]
