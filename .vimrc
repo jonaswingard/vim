@@ -115,6 +115,9 @@ Plug 'https://github.com/terryma/vim-multiple-cursors'
 " Plug 'https://github.com/SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'https://github.com/vimwiki/vimwiki'
+Plug 'pangloss/vim-javascript'
+Plug 'https://github.com/othree/html5-syntax.vim'
+Plug 'https://github.com/othree/html5.vim'
 call plug#end()
 
 colorscheme molokai 
@@ -265,3 +268,20 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " HTML close tag
 autocmd FileType html inoremap <C-Space> </<C-X><C-O><Esc>==a
+
+" Plugin: VIM Javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+" let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
