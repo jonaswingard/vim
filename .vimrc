@@ -107,7 +107,7 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 " Plug 'https://github.com/fholgado/minibufexpl.vim'
 Plug 'https://github.com/scrooloose/syntastic'
-Plug 'https://github.com/easymotion/vim-easymotion'
+" Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/scrooloose/nerdcommenter'
@@ -118,6 +118,7 @@ Plug 'https://github.com/vimwiki/vimwiki'
 Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/othree/html5-syntax.vim'
 Plug 'https://github.com/othree/html5.vim'
+Plug 'https://github.com/joequery/Stupid-EasyMotion'
 call plug#end()
 
 colorscheme molokai 
@@ -165,6 +166,7 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Also map leader + s
 map <leader>s <C-S>
+map <leader>w <C-S>
 
 " Quickly close windows
 nnoremap <leader>x :x<cr>
@@ -184,7 +186,7 @@ inoremap <S-Tab> <c-n>
 map <leader>r mzgg=G`z
 
 " Switch between the last two files
-nnoremap <leader><leader>f <c-^>
+nnoremap <leader><leader>t <c-^>
 
 
 " ================ Plugin-settings ========================
@@ -238,19 +240,19 @@ let g:syntastic_check_on_wq = 0
 
 " EasyMotion
 " <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
+"nmap s <Plug>(easymotion-overwin-f2)
 
 " Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
+"map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+"map  <Leader>w <Plug>(easymotion-bd-w)
+"nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " NERD Commenter settings
 let g:NERDCompactSexyComs = 1
@@ -285,3 +287,24 @@ let g:javascript_conceal_prototype      = "¶"
 let g:javascript_conceal_static         = "•"
 let g:javascript_conceal_super          = "Ω"
 let g:javascript_conceal_arrow_function = "⇒"
+
+" Testing windows size
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=999 columns=155
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+
+" Remap find?
+map - /
+
+" Stupid Easymotion
+nmap f <Leader><Leader>f
