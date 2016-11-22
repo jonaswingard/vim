@@ -105,19 +105,20 @@ set diffopt+=vertical
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-" Plug 'https://github.com/fholgado/minibufexpl.vim'
 Plug 'https://github.com/scrooloose/syntastic'
 " Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
-" Plug 'https://github.com/SirVer/ultisnips'
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'https://github.com/vimwiki/vimwiki'
 Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/othree/html5-syntax.vim'
 Plug 'https://github.com/othree/html5.vim'
+Plug 'mhinz/vim-startify'
 Plug 'https://github.com/joequery/Stupid-EasyMotion'
 call plug#end()
 
@@ -308,3 +309,36 @@ map - /
 
 " Stupid Easymotion
 nmap f <Leader><Leader>f
+
+" Startify
+let g:startify_bookmarks = [
+      \ { 'c': '~/.vim/vimrc' },
+      \ '~/golfing',
+      \ ]
+
+let g:startify_list_order = [
+      \ ['   These are my sessions:'],
+      \ 'sessions',
+      \ ['   These are my bookmarks:'],
+      \ 'bookmarks',
+      \ ['   My most recently used files'],
+      \ 'files',
+      \ ['   My most recently used files in the current directory:'],
+      \ 'dir',
+      \ ['   These are my commands:'],
+      \ 'commands',
+      \ ]
+
+let g:startify_commands = [
+      \ ':help reference',
+      \ ['Vim Reference', 'h ref'],
+      \ {'h': 'h ref'},
+      \ {'w': ['Vim Wiki', 'VimwikiIndex']},
+      \ ]
+
+" Disable scrollwheel
+map <ScrollWheelUp> <nop>
+map <S-ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
+map <S-ScrollWheelDown> <nop>
+
