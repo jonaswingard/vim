@@ -63,9 +63,9 @@ set cursorline " highlight the current line
 set splitright " open new splits to the right
 
 " Auto resize Vim splits to active split
-set winwidth=104
-set winheight=5
-set winminheight=5
+"set winwidth=104
+"set winheight=5
+"set winminheight=5
 
 " HTML Editing
 set matchpairs+=<:>
@@ -106,7 +106,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/scrooloose/syntastic'
-" Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/scrooloose/nerdcommenter'
@@ -120,6 +119,9 @@ Plug 'https://github.com/othree/html5-syntax.vim'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'mhinz/vim-startify'
 Plug 'https://github.com/joequery/Stupid-EasyMotion'
+Plug 'https://github.com/terryma/vim-smooth-scroll'
+Plug 'https://github.com/valloric/MatchTagAlways'
+Plug 'https://github.com/epmatsw/ag.vim'
 call plug#end()
 
 colorscheme molokai 
@@ -170,7 +172,7 @@ map <leader>s <C-S>
 map <leader>w <C-S>
 
 " Quickly close windows
-nnoremap <leader>x :x<cr>
+nnoremap <leader>x :bd<cr>
 nnoremap <leader>X :q!<cr>
 
 " resize panes
@@ -270,13 +272,13 @@ let g:multi_cursor_quit_key='<Esc>'
 " autocmd BufEnter * silent! cd %:p:h
 
 " HTML close tag
-autocmd FileType html inoremap <C-Space> </<C-X><C-O><Esc>==a
+" autocmd FileType html inoremap <C-Space> </<C-X><C-O><Esc>==a
 
 " Plugin: VIM Javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 " let g:javascript_plugin_flow = 1
-set foldmethod=syntax
+"set foldmethod=syntax
 
 let g:javascript_conceal_function       = "ƒ"
 let g:javascript_conceal_null           = "ø"
@@ -337,8 +339,17 @@ let g:startify_commands = [
       \ ]
 
 " Disable scrollwheel
-map <ScrollWheelUp> <nop>
-map <S-ScrollWheelUp> <nop>
-map <ScrollWheelDown> <nop>
-map <S-ScrollWheelDown> <nop>
+noremap <ScrollWheelUp> <nop>
+noremap <S-ScrollWheelUp> <nop>
+noremap <ScrollWheelDown> <nop>
+noremap <S-ScrollWheelDown> <nop>
 
+" Smooth scroll
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll, 0, 3)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 3)<CR>
+
+" MatchTagAlways
+nnoremap <leader>m :MtaJumpToOtherTag<cr>
+
+" Search settings
+let g:ag_highlight=1
