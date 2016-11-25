@@ -122,6 +122,7 @@ Plug 'https://github.com/joequery/Stupid-EasyMotion'
 Plug 'https://github.com/terryma/vim-smooth-scroll'
 Plug 'https://github.com/valloric/MatchTagAlways'
 Plug 'https://github.com/epmatsw/ag.vim'
+"Plug 'https://github.com/rking/ag.vim'
 call plug#end()
 
 colorscheme molokai 
@@ -153,7 +154,7 @@ endif
 imap jj <Esc>
 
 map Y y$
-nnoremap <leader>l :nohl<CR><C-L>
+nnoremap <leader>h :nohl<CR><C-L>
 
 
 " Copy and paste
@@ -195,6 +196,7 @@ nnoremap <leader><leader>t <c-^>
 " ================ Plugin-settings ========================
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <leader>l :NERDTreeFind<CR>
 
 " File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -353,3 +355,6 @@ nnoremap <leader>m :MtaJumpToOtherTag<cr>
 
 " Search settings
 let g:ag_highlight=1
+let g:ag_format="%f:%l:%m"
+xnoremap  K y:<c-u>Ag <C-R>=shellescape(expand(@"),1)<CR>:copen<CR>
+nnoremap  K :<c-u>Ag <c-r>=shellescape(expand("<cword>"),1)<cr>:copen<cr>
