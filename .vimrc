@@ -122,7 +122,11 @@ Plug 'https://github.com/joequery/Stupid-EasyMotion'
 Plug 'https://github.com/terryma/vim-smooth-scroll'
 Plug 'https://github.com/valloric/MatchTagAlways'
 Plug 'https://github.com/epmatsw/ag.vim'
-"Plug 'https://github.com/rking/ag.vim'
+Plug 'https://github.com/lukaszb/vim-web-indent'
+Plug 'https://github.com/nono/vim-handlebars'
+Plug 'https://github.com/dbakker/vim-projectroot'
+Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
+Plug 'https://github.com/rbgrouleff/bclose.vim'
 call plug#end()
 
 colorscheme molokai 
@@ -133,7 +137,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
+		set guifont=Consolas:h10:cANSI
   endif
 endif
 
@@ -173,8 +177,8 @@ map <leader>s <C-S>
 map <leader>w <C-S>
 
 " Quickly close windows
-nnoremap <leader>x :bd<cr>
-nnoremap <leader>X :q!<cr>
+"nnoremap <leader>x :bd<cr>
+"nnoremap <leader>X :q!<cr>
 
 " resize panes
 nnoremap <silent> <Right> :vertical resize +5<cr>
@@ -351,10 +355,20 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll, 0, 3)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 3)<CR>
 
 " MatchTagAlways
-nnoremap <leader>m :MtaJumpToOtherTag<cr>
+nnoremap <leader>m :MtaJumpToOtherTag<cr>_
 
 " Search settings
 let g:ag_highlight=1
 let g:ag_format="%f:%l:%m"
 xnoremap  K y:<c-u>Ag <C-R>=shellescape(expand(@"),1)<CR>:copen<CR>
 nnoremap  K :<c-u>Ag <c-r>=shellescape(expand("<cword>"),1)<cr>:copen<cr>
+"noremap <C-S-F> :Ag -Q 
+
+" Projectroot
+nnoremap <leader>dp :ProjectRootCD<cr>
+
+" Testing open command in current path
+nnoremap <leader>ot :silent !cmder /START "%:p:h"<CR>
+
+"BClose
+nnoremap <silent> <Leader>x :Bclose<CR>
